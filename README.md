@@ -1,77 +1,34 @@
-ZendSkeletonApplication
-=======================
+# Conference CfP App
 
-Introduction
-------------
-This is a simple, skeleton application using the ZF2 MVC layer and module
-systems. This application is meant to be used as a starting place for those
-looking to get their feet wet with ZF2.
+This application should solve all the issues found with several CfP's with conferences. Most of the time people just want to submit their talks quickly and easily, so by providing a single tool that will deal with most of the burden should make the whole CfP process more enjoyable for both the speaker and conference organiser.
 
-Installation
-------------
+# Issues this tool wants to solve
 
-Using Composer (recommended)
-----------------------------
-The recommended way to get a working copy of this project is to clone the repository
-and use `composer` to install dependencies using the `create-project` command:
+## Speaker information
 
-    curl -s https://getcomposer.org/installer | php --
-    php composer.phar create-project -sdev --repository-url="https://packages.zendframework.com" zendframework/skeleton-application path/to/install
+Most speakers already have a full profile on sites like [JoindIn](http://joind.in), so using the oAuth implementation of this site should immediately fetch the necessary information.
 
-Alternately, clone the repository and manually invoke `composer` using the shipped
-`composer.phar`:
+For speakers not yet registered with [JoindIn](http://joind.in), information can be gathered from [GitHub](https://github.com) which also provides oAuth.
 
-    cd my/project/dir
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git
-    cd ZendSkeletonApplication
-    php composer.phar self-update
-    php composer.phar install
+## Talk submission
 
-(The `self-update` directive is to ensure you have an up-to-date `composer.phar`
-available.)
+Each conference requires the same information, but often I see that things are missing or not covered. Maybe it's a good thing to have this project on [GitHub](https://github.com/DragonBe/conference-cfp-app) so it can be completed for all organisers to have the same approach and speakers know what information they need to provide.
 
-Another alternative for downloading the project is to grab it via `curl`, and
-then pass it to `tar`:
+A few common items that are returning on most CfP forms:
 
-    cd my/project/dir
-    curl -#L https://github.com/zendframework/ZendSkeletonApplication/tarball/master | tar xz --strip-components=1
+- Title
+- Abstract
+- Type of talk (lightning, regular talk or workshop)
+- Duration of talk (20 minutes, 1 hour, 3 or 6 hours)
+- Organiser information
+- Speaker requirements (audio, flipboard, …)
 
-You would then invoke `composer` to install dependencies per the previous
-example.
+## Management
 
-Using Git submodules
---------------------
-Alternatively, you can install using native git submodules:
+Most of the times proposals are managed through a CSV, email or an online document. This is often a burden for the conference organisers who just want to view the proposals and decide on who they select for the conference. Another downside is when speakers update their profile or their talks, it's often not registered so a wrong abstract ends up in the schedule.
 
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git --recursive
+So, a general management dashboard should give you direct access to all the submitted information giving a direct view on the proposals, the speakers and their origins (important to figure out the costs).
 
-Web Server Setup
-----------------
+# Licence
 
-### PHP CLI Server
-
-The simplest way to get started if you are using PHP 5.4 or above is to start the internal PHP cli-server in the root directory:
-
-    php -S 0.0.0.0:8080 -t public/ public/index.php
-
-This will start the cli-server on port 8080, and bind it to all network
-interfaces.
-
-**Note: ** The built-in CLI server is *for development only*.
-
-### Apache Setup
-
-To setup apache, setup a virtual host to point to the public/ directory of the
-project and you should be ready to go! It should look something like below:
-
-    <VirtualHost *:80>
-        ServerName zf2-tutorial.localhost
-        DocumentRoot /path/to/zf2-tutorial/public
-        SetEnv APPLICATION_ENV "development"
-        <Directory /path/to/zf2-tutorial/public>
-            DirectoryIndex index.php
-            AllowOverride All
-            Order allow,deny
-            Allow from all
-        </Directory>
-    </VirtualHost>
+This tool is under [MIT license](LICENSE.txt).

@@ -1,4 +1,6 @@
 Copyright (c) 2005-2014, Zend Technologies USA, Inc.
+Copyright (c) 2014, Michelangelo van Dam
+
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
